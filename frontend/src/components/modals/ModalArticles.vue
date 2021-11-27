@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { VueEditor } from 'vue2-editor';
+import { VueEditor } from "vue2-editor";
 import { createNamespacedHelpers } from "vuex";
 const { mapActions } = createNamespacedHelpers("Articles");
 export default {
@@ -30,7 +30,7 @@ export default {
     components: {
         ModalInput: () => import("@/components/modals/ModalInput"),
         SubmitButton: () => import("@/components/SubmitButton"),
-        VueEditor
+        VueEditor,
     },
     methods: {
         ...mapActions(["setModalVisible", "store", "update"]),

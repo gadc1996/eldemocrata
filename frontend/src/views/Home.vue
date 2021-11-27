@@ -12,12 +12,12 @@ export default {
     components: {
         NavBar: () => import("@/components/NavBar"),
     },
-  created() {
-    if(!this.userIsAuthenticated) this.$router.push('/login')
-  },
-  computed: {
-    ...mapGetters(['userIsAuthenticated']),
-  }
+    created() {
+        if (!this.userIsAuthenticated) this.$router.push("/login");
+    },
+    computed: {
+        ...mapGetters(["userIsAuthenticated"]),
+    },
 };
 </script>
 
