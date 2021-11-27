@@ -1,18 +1,32 @@
-<template>
-    <div class="home">
-        <img alt="Vue logo" src="../assets/logo.png" />
-        <HelloWorld msg="Welcome to Your Vue.js App" />
-    </div>
+<template lang="pug">
+  .home
+    NavBar
+    router-view
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapGetters } from "vuex";
 
 export default {
     name: "Home",
     components: {
-        HelloWorld,
+        NavBar: () => import("@/components/NavBar"),
+    },
+    created() {
+        if (!this.userIsAuthenticated) this.$router.push("/login");
+    },
+    computed: {
+        ...mapGetters(["userIsAuthenticated"]),
     },
 };
 </script>
+
+<style lang="scss">
+.home {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+</style>
