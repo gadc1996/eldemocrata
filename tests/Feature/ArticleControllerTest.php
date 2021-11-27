@@ -38,6 +38,15 @@ class ArticleControllerTest extends TestCase
          ]);
     }
 
+    public function testUserCanFindArticle(): void
+    {
+        $article = factory(Article::class)->create();
+        $this->get("api/articles/{$article->id}")
+             ->assertOk()
+             ->assertHeader('Content-Type', 'application/json')
+            ->assertJson($article->toArray());
+    }
+
     public function testUserCanDeleteArticle(): void
     {
         $article = factory(Article::class)->create();
@@ -46,6 +55,15 @@ class ArticleControllerTest extends TestCase
             'title' => $article->title,
         ]);
 
+    }
+
+    public function testUserCanUpdateArticle(): void
+    {
+        $article = factory(Article::class)->create();
+        $factory = factory(Article::class)->make()->toArray();
+        $this->put("api/articles/{$article->id}", $factory);
+
+        $this->assertDatabaseHas('articles', $factory);
     }
 
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Article\ArticleDestroyRequest;
+use App\Http\Requests\Article\ArticleShowRequest;
 use App\Http\Requests\Article\ArticleStoreRequest;
+use App\Http\Requests\Article\ArticleUpdateRequest;
 use App\Http\Resources\ArticleCollection;
 use App\Repositories\ArticleRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -26,6 +28,18 @@ class ArticleController extends Controller
     {
         $resource = $this->repository->store($request->validated());
         return response()->json($resource, 201);
+    }
+
+    public function show(ArticleShowRequest $request): JsonResponse
+    {
+        $resource = $this->repository->show($request->validated());
+        return response()->json($resource, 200);
+    }
+
+    public function update(ArticleUpdateRequest $request)
+    {
+        $resource = $this->repository->update($request->validated());
+        return response()->json($resource, 200);
     }
 
     public function destroy(ArticleDestroyRequest $request): JsonResponse

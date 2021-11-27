@@ -24,6 +24,20 @@ class ArticleRepository
         return $article;
     }
 
+    public function show(array $data)
+    {
+        $article = $this->model->find($data['id']);
+        return $article;
+    }
+
+    public function update(array $data)
+    {
+        $article = $this->model->find($data['id']);
+        \Log::info($article->toArray());
+        $article->update($data);
+        return $article;
+    }
+
     public function destroy(array $data)
     {
         $article = $this->model->find($data['id']);
