@@ -21,8 +21,7 @@ export default {
     },
     watch: {
         userIsAuthenticated: function (userIsAuthenticated) {
-          if(userIsAuthenticated)
-            this.$router.push("/dashboard");
+            if (userIsAuthenticated) this.$router.push("/dashboard");
         },
     },
 };

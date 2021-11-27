@@ -1,9 +1,7 @@
 <template lang="pug">
   .nav-bar
-    NavLink(route='/dashboard/customers' icon='person-outline')
-    NavLink(route='/dashboard/events' icon="gift-outline")
-    NavLink(route='/dashboard/event-types' icon="gift-outline")
-    NavLink(route='/dashboard/waiters' icon="gift-outline")
+    NavLink(route='/dashboard/' icon='grid-outline')
+    NavLink(route='/articles' icon='book-outline')
 </template>
 <script>
 export default {
@@ -18,6 +16,8 @@ export default {
 .nav-bar {
     display: flex;
     flex-direction: column;
-    background-color: inherit;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
 }
 </style>

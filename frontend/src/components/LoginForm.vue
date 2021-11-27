@@ -5,8 +5,8 @@
     h2 Iniciar sesion
     h3 Ingresa tus datos
     form(@submit.prevent="login").login-form
-      LoginInput(placeholder="Email" icon="people-outline" :value='newRecord.email' type="email" v-model="newRecord.email")
-      LoginInput(placeholder="Password" icon="email-outline" :value='newRecord.email' type="password" v-model="newRecord.password")
+      LoginInput(placeholder="Email" icon="email-outline" :value='newRecord.email' type="email" v-model="newRecord.email")
+      LoginInput(placeholder="Password" icon="eye-off-outline" :value='newRecord.email' type="password" v-model="newRecord.password")
       SubmitButton
 </template>
 <script>

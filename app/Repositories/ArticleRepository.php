@@ -20,6 +20,14 @@ class ArticleRepository
 
     public function store(array $data)
     {
-        return $this->model->create($data);
+        $article = $this->model->create($data);
+        return $article;
+    }
+
+    public function destroy(array $data)
+    {
+        $article = $this->model->find($data['id']);
+        $article->delete();
+        return $article;
     }
 }

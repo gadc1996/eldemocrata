@@ -16,7 +16,7 @@ const mutations = {
         state.user = payload;
     },
     SET_USER_IS_AUTHENTICATED(state, payload) {
-        state.userIsAuthenticated= payload;
+        state.userIsAuthenticated = payload;
     },
 };
 

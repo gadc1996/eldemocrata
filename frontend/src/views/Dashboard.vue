@@ -1,7 +1,6 @@
 <template lang="pug">
   .dashboard
-    NavBar
-    router-view
+    h2 This is the dashboard
 </template>
 
 <script>
@@ -15,10 +14,5 @@ export default {
 
 <style lang="scss">
 .dashboard {
-    display: grid;
-    grid-template-columns: 1fr 10fr;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000;
 }
 </style>

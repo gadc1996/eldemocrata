@@ -2,21 +2,23 @@
 .modal
   .tools
     eva-icon.close-icon(name="close-outline" @click="setModalVisible(false)")
-    h2(v-if="storeResource") Create Customer
-    h2(v-if="!storeResource") Update Customer
+    h2(v-if="storeResource") Create Article
+    h2(v-if="!storeResource") Update Article
     form(@submit.prevent="submitResource()")
-      ModalInput(placeholder="First Name" :value="newRecord.first_name" v-model="newRecord.first_name")
-      ModalInput(placeholder="Last Name" :value="newRecord.last_name" v-model="newRecord.last_name")
-      ModalInput(placeholder="Email" :value="newRecord.email" v-model="newRecord.email")
-      ModalInput(placeholder="Phone Number" :value="newRecord.phone_number" v-model="newRecord.phone_number")
+      h2 {{ newRecord }}
+      label Title
+      ModalInput(placeholder="Title" :value="newRecord.title" v-model="newRecord.title")
+      label Content
+      VueEditor(v-model="newRecord.content")
       SubmitButton
 </template>
 
 <script>
+import { VueEditor } from 'vue2-editor';
 import { createNamespacedHelpers } from "vuex";
-const { mapActions } = createNamespacedHelpers("Customers");
+const { mapActions } = createNamespacedHelpers("Articles");
 export default {
-    name: "ModalCustomers",
+    name: "ModalArticles",
     props: {
         newRecord: {
             type: Object,
@@ -28,9 +30,7 @@ export default {
     components: {
         ModalInput: () => import("@/components/modals/ModalInput"),
         SubmitButton: () => import("@/components/SubmitButton"),
-    },
-    async created() {
-        await this.loadCustomers();
+        VueEditor
     },
     methods: {
         ...mapActions(["setModalVisible", "store", "update"]),

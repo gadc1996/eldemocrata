@@ -38,4 +38,14 @@ class ArticleControllerTest extends TestCase
          ]);
     }
 
+    public function testUserCanDeleteArticle(): void
+    {
+        $article = factory(Article::class)->create();
+        $this->delete(("api/articles/{$article->id}"));
+        $this->assertDatabaseMissing('articles', [
+            'title' => $article->title,
+        ]);
+
+    }
+
 }
