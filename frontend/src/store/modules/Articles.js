@@ -52,7 +52,7 @@ const actions = {
     async loadResources({ commit }) {
         try {
             const response = await axios.get(
-                "http://eldemocrata.test/api/articles"
+                "https://eldemocrata.mx/api/articles"
             );
             commit("SET_RESOURCES", response.data.data);
             commit("SET_LINKS", response.data.links);
@@ -63,7 +63,7 @@ const actions = {
     async store({ commit }, payload) {
         try {
             const response = await axios.post(
-                "http://eldemocrata.test/api/articles",
+                "https://eldemocrata.mx/api/articles",
                 payload
             );
             commit("ADD_RESOURCE", response.data.data);
@@ -75,7 +75,7 @@ const actions = {
     async update({ commit }, payload) {
         try {
             const response = await axios.put(
-                `http://eldemocrata.test/api/articles/${payload.id}`,
+                `https://eldemocrata.mx/api/articles/${payload.id}`,
                 payload
             );
             commit("UPDATE_RESOURCE", response.data.data);
@@ -86,7 +86,7 @@ const actions = {
     },
     async destroy({ commit }, payload) {
         try {
-            axios.delete(`http://eldemocrata.test/api/articles/${payload.id}`);
+            axios.delete(`https://eldemocrata.mx/api/articles/${payload.id}`);
             commit("DESTROY_RESOURCE", payload);
         } catch (error) {
             console.log(error);
