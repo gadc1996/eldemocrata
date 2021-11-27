@@ -29,6 +29,7 @@
 <script>
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters, mapActions } = createNamespacedHelpers("Articles");
+
 export default {
     name: "Articles",
     components: {

@@ -30,7 +30,6 @@ const mutations = {
         state.storeResource = payload;
     },
     ADD_RESOURCE(state, payload) {
-        console.log(payload);
         state.resources.unshift(payload);
     },
     DESTROY_RESOURCE(state, payload) {
@@ -76,7 +75,7 @@ const actions = {
     async update({ commit }, payload) {
         try {
             const response = await axios.put(
-                `http://more-shots.test/api/customers/${payload.id}`,
+                `http://eldemocrata.test/api/articles/${payload.id}`,
                 payload
             );
             commit("UPDATE_RESOURCE", response.data.data);
@@ -87,7 +86,7 @@ const actions = {
     },
     async destroy({ commit }, payload) {
         try {
-            axios.delete(`http://more-shots.test/api/customers/${payload.id}`);
+            axios.delete(`http://eldemocrata.test/api/articles/${payload.id}`);
             commit("DESTROY_RESOURCE", payload);
         } catch (error) {
             console.log(error);

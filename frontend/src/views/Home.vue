@@ -5,11 +5,19 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
     name: "Home",
     components: {
         NavBar: () => import("@/components/NavBar"),
     },
+  created() {
+    if(!this.userIsAuthenticated) this.$router.push('/login')
+  },
+  computed: {
+    ...mapGetters(['userIsAuthenticated']),
+  }
 };
 </script>
 
