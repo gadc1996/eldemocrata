@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.3441ade844cd2110444eaa3a26b3dd92.js"
+  "/precache-manifest.d159fa2c46570c159d13c47df28b4e6c.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "eldemocrata"});

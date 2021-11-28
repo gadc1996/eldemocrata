@@ -24,7 +24,7 @@ const actions = {
     async loginUser({ commit }, payload) {
         try {
             const response = await axios.post(
-                "https://eldemocrata.mx/api/login",
+                "http://admin.eldemocrata.mx/api/login",
                 payload
             );
             commit("SET_USER", response.data.data);
